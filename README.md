@@ -20,7 +20,7 @@ Your workflow should contain at least one clearly motivated use of a **generativ
 
 ## The five deliverables required for every project
 
-The numbered deliverables in each project below specify what these common requirements mean for that particular task. They form the contents of your GitHub contribution and the evidence for your presentation. You may combine the written material in a README or short report; five separate reports are not required.
+The numbered deliverables in each project below specify what these common requirements mean for that particular task. They form the contents of your GitHub contribution and the evidence for your presentation. You may combine the written material in a README or short report (four separate reports are not required).
 
 |DELIVERABLE|REQUIRED CONTENTS|
 |---|---|
