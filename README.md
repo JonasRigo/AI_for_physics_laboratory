@@ -1,11 +1,10 @@
-# Generative and Agentic AI in Physics
+# AI for physics laboratory
 
 ## Workflow automation projects
 
 **Work in pairs. Projects are assigned to you.** Develop a small, useful automation for a clearly defined physics task. Your project has two main outcomes:
 
 1. **Upload a reusable workflow to the shared course GitHub repository**, with the instructions and examples your fellow colleagues need to run and adapt it.
-    
 2. **Give a 45-minute presentation** explaining what the workflow does, how it works, why you designed it that way, and what its results and examples demonstrate.
 
 The aim is to contribute a useful tool to the class and teach your fellow colleagues how to understand and use it.
@@ -22,27 +21,21 @@ Your workflow should contain at least one clearly motivated use of a **generativ
 
 The numbered deliverables in each project below specify what these common requirements mean for that particular task. They form the contents of your GitHub contribution and the evidence for your presentation. You may combine the written material in a README or short report (four separate reports are not required).
 
-|DELIVERABLE|REQUIRED CONTENTS|
-|---|---|
-|**1. Precise task specification**|State the scientific question, intended user, accepted inputs, expected outputs, assumptions, excluded tasks, and success criteria. Define stopping conditions, including a maximum number of iterations or tool calls where applicable and a time or compute budget. Specify what happens when evidence is missing or a check fails. A short specification of roughly one page is sufficient.|
-|**2. Executable workflow**|Submit the flow export, scripts, or notebook, plus one complete example with its input files and expected output structure. Include installation instructions, dependency versions, model requirements, and exact instructions to run it. Another group should be able to follow the instructions without reconstructing undocumented steps. Include any custom components.|
-|**3. Evaluation**|Compare the workflow with a simple baseline on the same inputs. Use test cases, including at least one deliberately difficult or failing case and one easy baseline case. Define the expected result or checking procedure before the final evaluation. Report outcomes for all cases, scientific errors, limitations, and approximate runtime and model usage or cost. A test case can be a question, parameter setting, data variant, or input defect.|
-|**4. Be the judge**|Explain where a physicist must supply assumptions, inspect evidence, resolve ambiguity, or approve a result. Identify what triggers that intervention and what the person sees. Include one concrete example of a correction, rejection, or justified acceptance.|
+| DELIVERABLE                       | REQUIRED CONTENTS                                            |
+| --------------------------------- | ------------------------------------------------------------ |
+| **1. Precise task specification** | State the scientific question, intended user, accepted inputs, expected outputs, assumptions, excluded tasks, and success criteria. Define stopping conditions, including a maximum number of iterations or tool calls where applicable and a time or compute budget. Specify what happens when evidence is missing or a check fails. A short specification of roughly one page is sufficient. |
+| **2. Executable workflow**        | Submit the flow export, scripts, or notebook, plus one complete example with its input files and expected output structure. Include installation instructions, dependency versions, model requirements, and exact instructions to run it. Another group should be able to follow the instructions without reconstructing undocumented steps. Include any custom components. |
+| **3. Evaluation**                 | Compare the workflow with a simple baseline on the same inputs. Use test cases, including at least one deliberately difficult or failing case and one easy baseline case. Define the expected result or checking procedure before the final evaluation. Report outcomes for all cases, scientific errors, limitations, and approximate runtime and model usage or cost. A test case can be a question, parameter setting, data variant, or input defect. |
+| **4. Be the judge**               | Explain where a physicist must supply assumptions, inspect evidence, resolve ambiguity, or approve a result. Identify what triggers that intervention and what the person sees. Include one concrete example of a correction, rejection, or justified acceptance. |
 
 ### Evaluation principles
 
 - A useful baseline can be a direct LLM prompt, keyword retrieval, a fixed script, or a conventional numerical method. Choose one that tests the value of your added workflow.
-    
 - Use the same evaluation inputs and reference criteria for both systems. Keep model and tool access comparable where possible, and report differences in compute or available information.
-    
 - Keep at least two test cases aside while developing the workflow. Do not repeatedly tune prompts on every final test.
-    
 - For your workflow, repeat at least one representative case three times and describe any variation.
-    
 - Try to compare the behaviours of different LLMs, different context length and reasoning settings.
-    
 - A workflow that identifies insufficient information or fails with interpretable traces can be more useful than one that always produces a confident answer. An honest negative result is a valid project outcome.
-    
 
 ### Outcome 1: a reusable contribution to the shared GitHub repository
 
@@ -51,13 +44,9 @@ Upload your completed workflow to the shared course GitHub repository using the 
 Your contribution must contain:
 
 - **The executable workflow:** flow exports, scripts, or notebooks, including custom components and required prompts or configuration files.
-    
 - **A README:** the purpose or function, supported inputs and outputs, prerequisites, software versions, model/service requirements, installation or import steps, and exact instructions for running an example.
-    
 - **An example input and its recorded output:** explain what another collegue should expect to see, including acceptable variation in stochastic outputs.
-    
 - **The four deliverables:** task specification, evaluation results and procedures, and account of human judgment alongside the executable workflow. Explain the key design choices and how to adapt the example to a new question or dataset.
-    
 
 For your submission create a folder `workflow_name/` and structure with like this: `README.md`, `workflow/`, `example/`, `evidence/` and `evaluation.md` (equivalent organization is welcome). Written explanations may share a file.
 
@@ -71,13 +60,13 @@ Your presentation should teach your collegues how the workflow works and why its
 
 The following timing is a suggestion. You may distribute the 35 minutes differently, provided you cover the required content.
 
-|TIME|TOPIC|WHAT TO EXPLAIN OR DEMONSTRATE|
-|---|---|---|
-|0–5 min|Scientific task|Who would use this workflow? What problem does it solve? What are its inputs, outputs, assumptions, and limits?|
-|5–15 min|How the workflow works|Show an overview, then trace one input through the stages. Explain the model calls, tools, data passed between stages, any retained state, and the conditions for repeating or stopping.|
-|15–20 min|Why you designed it this way|Justify the main decisions: where you use an LLM, where you use ordinary code, how you retrieve or check information, and where a human intervenes. Explain at least one alternative you considered and the tradeoff that informed your choice.|
-|20–30 min|Examples and results|Demonstrate one complete run and inspect important intermediate artifacts. Show the evaluation against your baseline and at least one failure or difficult case. Explain what the results establish and what remains uncertain.|
-|30–35 min|Reuse and limitations|Show where the workflow lives in the shared repository, how to run the supplied example, and how to adapt it. Summarize the situations in which a physicist should inspect, modify, or decline to use its output.|
+| TIME      | TOPIC                        | WHAT TO EXPLAIN OR DEMONSTRATE                               |
+| --------- | ---------------------------- | ------------------------------------------------------------ |
+| 0–5 min   | Scientific task              | Who would use this workflow? What problem does it solve? What are its inputs, outputs, assumptions, and limits? |
+| 5–15 min  | How the workflow works       | Show an overview, then trace one input through the stages. Explain the model calls, tools, data passed between stages, any retained state, and the conditions for repeating or stopping. |
+| 15–20 min | Why you designed it this way | Justify the main decisions: where you use an LLM, where you use ordinary code, how you retrieve or check information, and where a human intervenes. Explain at least one alternative you considered and the tradeoff that informed your choice. |
+| 20–30 min | Examples and results         | Demonstrate one complete run and inspect important intermediate artifacts. Show the evaluation against your baseline and at least one failure or difficult case. Explain what the results establish and what remains uncertain. |
+| 30–35 min | Reuse and limitations        | Show where the workflow lives in the shared repository, how to run the supplied example, and how to adapt it. Summarize the situations in which a physicist should inspect, modify, or decline to use its output. |
 
 **Note**: Prepare a saved example if a live run depends on network access or takes too long.
 
@@ -85,9 +74,11 @@ The presentation should answer four questions clearly: **What does it do? How do
 
 **A completed project consists of the uploaded, documented workflow with all five deliverables and a 35-minute presentation. More components or more agents do not by themselves make a better project.**
 
----
+------
 
 ## 1. Evidence-grounded question answering: RAG, GraphRAG, or OAG
+
+**Short explanation.** RAG stands for *retrieval augmented generation*, it allows agentic AI to retrieve information from a knowledge base to answer questions from facts and not memory. Facts and also be *ingested* to dynamically update the agent knowledge.
 
 **Assignment.** Build an assistant that answers physics questions using a collection of papers or lecture-notes. Answers must identify the passages that support their important statements.
 
@@ -95,13 +86,13 @@ Choose one main approach: retrieval-augmented generation (RAG), graph-assisted r
 
 If you go the graph extraction route use the reference graph extraction worfklow.
 
-**Suggested route.** Load documents, preserve source locations, divide text into useful passages (ingestion), retrieve evidence for a question, generate an answer, and check its support. A graph variant might extract a graph (see reference workflow), follow links between a model, its assumptions, and its predictions. For maximum flexibility: make the ingestion of documents and retrieval of passges separate _tools_ that you can expose to an agent.
+**Suggested route.** Load documents, preserve source locations, divide text into useful passages (ingestion), retrieve evidence for a question, generate an answer, and check its support. A graph variant might extract a graph (see reference workflow), follow links between a model, its assumptions, and its predictions. For maximum flexibility: make the ingestion of documents and retrieval of passges separate *tools* that you can expose to an agent.
 
 **Optional software hints.** Langflow can connect retrieval and generation and turn HTML into structured text. ChromaDB can store and search embeddings. NetworkX can hold a small graph without a separate database; RDFLib is an option for RDF-based relations. See the tool guide below.
 
 **Comments.** Use a user-provided collection. New literature discovery belongs to Project 2. Building a general physics ontology is unnecessary.
 
----
+------
 
 ## 2. Literature research with review
 
@@ -115,7 +106,7 @@ If you go the graph extraction route use the reference graph extraction worfklow
 
 **Comments.** Let reviewer feedback propose a revised search query within the fixed search budget. Use arxiv papers for easily accessible search and note: Arxiv HTML papers are easier to read for a machine than PDFs (PDFs are hard to read!) and arxiv search does not rank results liek OpenAlex.
 
----
+------
 
 ## 3. A physics tutor and examiner
 
@@ -131,7 +122,7 @@ Prepare **three learning objectives and six reference-checked questions**, inclu
 
 **Optional extension.** Adapt question difficulty using a transparent record of demonstrated skills.
 
----
+------
 
 ## 4. Reproduce one result from a paper
 
@@ -145,7 +136,7 @@ Prepare **three learning objectives and six reference-checked questions**, inclu
 
 **Optional extension.** Test a prediction at a parameter value not shown in the paper.
 
----
+------
 
 ## 5. Experimental data analysis and presentation
 
@@ -159,7 +150,7 @@ Use an openly available dataset of your choice, or generate realistic synthetic 
 
 **Optional extension.** Compare two physically motivated models or add a documented treatment of correlated calibration uncertainty.
 
----
+------
 
 ## 6. Analytic derivation with verification
 
@@ -173,7 +164,7 @@ Use an openly available dataset of your choice, or generate realistic synthetic 
 
 **Optional extension.** Add a dedicated counterexample search before accepting a claim.
 
----
+------
 
 ## 7. Orchestration of a numerical experiment
 
@@ -187,16 +178,16 @@ Example tasks include selecting an integration step for a target accuracy, choos
 
 **Application proposal.** [How reliably can a small neural network distinguish the two phases, and how does its inferred transition depend on training data, network size, and random seed?](https://arxiv.org/abs/1605.01735?utm_source=google.com)
 
-|STAGE|WHAT THE WORKFLOW DOES|
-|---|---|
-|Generate data|Run Monte Carlo simulations at specified temperatures; save configurations and simulation settings (16x16 sites for H = \sum_{ij} s^z_i s^z_j)|
-|Establish a baseline|Classify configurations using their absolute magnetisation \lvert m\rvert.|
-|Tune the network|Compare a set of hidden-layer sizes and regularisation strengths.|
-|Select a model|Use validation performance, with a preference for a smaller model when performance is comparable.|
-|Accumulate final results|Retrain the selected configuration with several seeds and evaluate on independent simulations.|
-|Report|Plot predictions versus temperature, uncertainty across runs, baseline comparisons, and computational cost.|
+| STAGE                    | WHAT THE WORKFLOW DOES                                       |
+| ------------------------ | ------------------------------------------------------------ |
+| Generate data            | Run Monte Carlo simulations at specified temperatures; save configurations and simulation settings (16x16 sites for H = \sum_{ij} s^z_i s^z_j) |
+| Establish a baseline     | Classify configurations using their absolute magnetisation \lvert m\rvert. |
+| Tune the network         | Compare a set of hidden-layer sizes and regularisation strengths. |
+| Select a model           | Use validation performance, with a preference for a smaller model when performance is comparable. |
+| Accumulate final results | Retrain the selected configuration with several seeds and evaluate on independent simulations. |
+| Report                   | Plot predictions versus temperature, uncertainty across runs, baseline comparisons, and computational cost. |
 
----
+------
 
 ## 8. Explanation of code or a paper with a reviewed concept graph
 
@@ -210,7 +201,7 @@ Choose a target such as approximately 100–300 lines of scientific code or 2–
 
 **Optional extension.** Offer a second explanation for a reader with different prior knowledge while retaining the same source links.
 
----
+------
 
 ## 9. A scientific text editor with terminology and consistency checks
 
@@ -224,7 +215,7 @@ Create a compact terminology specification: approximately ten terms or symbols, 
 
 **Optional extension.** Add a check that accepted edits preserve equations, numerical values, and defined notation.
 
----
+------
 
 ## 10. A daily research briefing
 
@@ -238,7 +229,7 @@ Use a **synthetic calendar covering one week and 10–15 tasks**. Treat briefing
 
 **Optional extension.** Generate a weekly planning summary using the same evidence record.
 
----
+------
 
 # Optional alternative projects
 
@@ -254,7 +245,7 @@ These projects use exactly the same five deliverables and evaluation requirement
 
 **Optional extension.** Compare two numerical methods under the same accuracy target.
 
----
+------
 
 ## 12. Diagnosis of failed or suspicious simulations
 
@@ -268,7 +259,7 @@ Use a familiar simulator and at least four controlled defects, together with a s
 
 **Optional extension.** Apply one approved repair and rerun the scientific checks.
 
----
+------
 
 ## 13. Scientific dataset curation
 
@@ -282,7 +273,7 @@ Start with approximately **ten small files** from one type of experiment or simu
 
 **Optional extension.** Add a summary of how the curated dataset differs from its previous version.
 
----
+------
 
 ## 14. Adaptive design of a simulated experiment
 
@@ -296,38 +287,40 @@ Suitable examples include selecting frequencies around a resonance or times at w
 
 **Optional extension.** Examine how the selection strategy behaves under a misspecified noise model.
 
----
+------
 
 # Optional software guide
 
 The following are suggestions for particular operations, not a required software stack. Start with the fewest tools that make your example work. Check access requirements and the documentation for your installed version. A native Langflow component may not exist for every library; ordinary Python code, a custom component, or an external tool interface are all possible choices.
 
-| OPERATION                       | POSSIBLE TOOL                                                                                                         | ROLE IN A PROJECT                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Run LLMs locally                | [Ollama](https://ollama.com/)                                                                                         | Run open models on your own computer. Model size and performance depend on the available memory and hardware. ([ollama.com](https://www.ollama.com/?utm_source=chatgpt.com "Ollama"))                                                                                                                                                                   |
-| Coding harness                  | [OpenCode](https://opencode.ai/)                                                                                      | Use a coding agent to help implement, explain, and debug your workflow. Supports different model providers. Review generated code and verify its results. ([The open source AI coding agent](https://opencode.ai/en/?utm_source=chatgpt.com "OpenCode"))                                                                                                |
-| Access hosted LLMs              | [OpenRouter](https://openrouter.ai/)                                                                                  | Access models from multiple providers through a common API. Useful for comparing models without changing your workflow substantially. Paid and some free models are available. ([Documentation](https://openrouter.ai/docs/cookbook/coding-agents/opencode-integration?utm_source=chatgpt.com "Integration with OpenCode \| OpenRouter \| OpenRouter")) |
-| Build agentic workflows in code | [LangGraph](https://docs.langchain.com/oss/python/langgraph/overview)                                                 | Define workflows with shared state, conditional branches, tool calls, and review loops. Suitable when you want detailed control over execution in code. ([LangChain Reference](https://reference.langchain.com/python/langgraph/overview?utm_source=chatgpt.com "LangGraph - Python API Reference"))                                                    |
-| General-purpose AI assistant    | [Hermes Agent](https://hermes-agent.nousresearch.com/)                                                                | Use an open-source assistant with tools, persistent memory, and reusable skills. A possible starting point for a research assistant or daily-briefing project. ([Hermes Agent](https://hermes-agent.nousresearch.com/docs/?utm_source=chatgpt.com "Hermes Agent Documentation"))                                                                        |
-| Visual workflow construction    | [Langflow](https://docs.langflow.org/)                                                                                | Connect model calls and processing stages. [Custom Python components](https://docs.langflow.org/components-custom-components) can implement calculations or integrations.                                                                                                                                                                               |
-| Reusable tool interface         | [Langflow MCP server](https://docs.langflow.org/mcp-server)                                                           | Optionally expose a completed bounded workflow as a tool for another application. This is an extension, not a submission requirement.                                                                                                                                                                                                                   |
-| HTML extraction                 | [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)                                              | Parse HTML and select sections or metadata. Fetching a page is a separate step; inspect mathematical markup rather than assuming plain-text extraction preserves equations.                                                                                                                                                                             |
-| Scholarly discovery             | [OpenAlex API](https://help.openalex.org/api/)                                                                        | Find scholarly records and metadata. Check current access requirements and preserve search snapshots. Metadata availability does not imply accessible full text.                                                                                                                                                                                        |
-| Embedding retrieval             | [Chroma](https://docs.trychroma.com/docs/overview/introduction)                                                       | Store embeddings and retrieve related passages. An index is optional when a small collection can be searched directly.                                                                                                                                                                                                                                  |
-| Small graphs                    | [NetworkX](https://networkx.org/documentation/stable/)                                                                | Represent and inspect entities and relations in Python.                                                                                                                                                                                                                                                                                                 |
-| RDF relations                   | [RDFLib](https://rdflib.readthedocs.io/en/stable/)                                                                    | Represent and query RDF statements. Define the meaning of your relations explicitly.                                                                                                                                                                                                                                                                    |
-| Tabular data                    | [pandas](https://pandas.pydata.org/docs/getting_started/overview.html)                                                | Read tables, organize records, merge files, and perform explicit checks.                                                                                                                                                                                                                                                                                |
-| Numerical calculation           | [SciPy](https://docs.scipy.org/doc/scipy/tutorial/index.html)                                                         | Use numerical integration, optimization, fitting, and statistical routines appropriate to the problem.                                                                                                                                                                                                                                                  |
-| Arrays and simulated noise      | [NumPy](https://numpy.org/doc/stable/)                                                                                | Work with numerical arrays and controlled random sampling.                                                                                                                                                                                                                                                                                              |
-| Plotting                        | [Matplotlib](https://matplotlib.org/stable/users/getting_started/index.html)                                          | Create figures with explicit units, labels, and uncertainty representations.                                                                                                                                                                                                                                                                            |
-| Symbolic calculation            | [SymPy](https://docs.sympy.org/latest/index.html)                                                                     | Manipulate symbolic expressions and check suitable identities under explicit assumptions.                                                                                                                                                                                                                                                               |
-| Physical units                  | [Pint](https://pint.readthedocs.io/en/stable/)                                                                        | Represent quantities with units and perform compatible conversions.                                                                                                                                                                                                                                                                                     |
-| Repeatable checks               | [pytest](https://docs.pytest.org/en/stable/)                                                                          | Run numerical and structural checks with recorded expected outcomes.                                                                                                                                                                                                                                                                                    |
-| Notebook execution              | [nbclient](https://nbclient.readthedocs.io/en/latest/)                                                                | Execute a notebook programmatically and preserve outputs.                                                                                                                                                                                                                                                                                               |
-| Optimization studies            | [Optuna](https://optuna.readthedocs.io/en/stable/tutorial/10_key_features/003_efficient_optimization_algorithms.html) | Propose optimization trials and manage their evaluation. Use only when optimization matches the scientific objective.                                                                                                                                                                                                                                   |
-| Grammar suggestions             | [LanguageTool](https://languagetool.org/proofreading-api)                                                             | Supply language-level checks. It does not establish scientific correctness.                                                                                                                                                                                                                                                                             |
-| Calendar files                  | [icalendar](https://icalendar.readthedocs.io/en/latest/)                                                              | Read and write iCalendar data; read-only input is sufficient for Project 10.                                                                                                                                                                                                                                                                            |
-| Statistical surrogate models    | [scikit-learn Gaussian processes](https://scikit-learn.org/stable/modules/gaussian_process.html)                      | Optional regression and predictive uncertainty models for adaptive experiment design.                                                                                                                                                                                                                                                                   |
+| OPERATION                       | POSSIBLE TOOL                                                | ROLE IN A PROJECT                                            |
+| ------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Run LLMs locally                | [Ollama](https://ollama.com/)                                | Run open models on your own computer. Model size and performance depend on the available memory and hardware. ([ollama.com](https://www.ollama.com/?utm_source=chatgpt.com)) |
+| Coding harness                  | [OpenCode](https://opencode.ai/)                             | Use a coding agent to help implement, explain, and debug your workflow. Supports different model providers. Review generated code and verify its results. ([The open source AI coding agent](https://opencode.ai/en/?utm_source=chatgpt.com)) |
+| Access hosted LLMs              | [OpenRouter](https://openrouter.ai/)                         | Access models from multiple providers through a common API. Useful for comparing models without changing your workflow substantially. Paid and some free models are available. ([Documentation](https://openrouter.ai/docs/cookbook/coding-agents/opencode-integration?utm_source=chatgpt.com)) |
+| Build agentic workflows in code | [LangGraph](https://docs.langchain.com/oss/python/langgraph/overview) | Define workflows with shared state, conditional branches, tool calls, and review loops. Suitable when you want detailed control over execution in code. ([LangChain Reference](https://reference.langchain.com/python/langgraph/overview?utm_source=chatgpt.com)) |
+| Graph-based bookkeeping         | [Semantica-Agi](https://docs.getsemantica.ai/)               | Semantica-Agi is a powerful tool to manage and create graphs, manage big knowledge bases and extract useful connections and insights from the provided data using graph reasoning. |
+| General-purpose AI assistant    | [Hermes Agent](https://hermes-agent.nousresearch.com/)       | Use an open-source assistant with tools, persistent memory, and reusable skills. A possible starting point for a research assistant or daily-briefing project. ([Hermes Agent](https://hermes-agent.nousresearch.com/docs/?utm_source=chatgpt.com)) |
+| Visual workflow construction    | [Langflow](https://docs.langflow.org/)                       | Connect model calls and processing stages. [Custom Python components](https://docs.langflow.org/components-custom-components) can implement calculations or integrations. |
+| Reusable tool interface         | [Langflow MCP server](https://docs.langflow.org/mcp-server)  | Optionally expose a completed bounded workflow as a tool for another application. This is an extension, not a submission requirement. |
+| HTML extraction                 | [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) | Parse HTML and select sections or metadata. Fetching a page is a separate step; inspect mathematical markup rather than assuming plain-text extraction preserves equations. |
+| Scholarly discovery             | [OpenAlex API](https://help.openalex.org/api/)               | Find scholarly records and metadata. Check current access requirements and preserve search snapshots. Metadata availability does not imply accessible full text. |
+| Embedding retrieval             | [Chroma](https://docs.trychroma.com/docs/overview/introduction) | Store embeddings and retrieve related passages. An index is optional when a small collection can be searched directly. |
+| Small graphs                    | [NetworkX](https://networkx.org/documentation/stable/)       | Represent and inspect entities and relations in Python.      |
+| RDF relations                   | [RDFLib](https://rdflib.readthedocs.io/en/stable/)           | Represent and query RDF statements. Define the meaning of your relations explicitly. |
+| Tabular data                    | [pandas](https://pandas.pydata.org/docs/getting_started/overview.html) | Read tables, organize records, merge files, and perform explicit checks. |
+| Numerical calculation           | [SciPy](https://docs.scipy.org/doc/scipy/tutorial/index.html) | Use numerical integration, optimization, fitting, and statistical routines appropriate to the problem. |
+| Arrays and simulated noise      | [NumPy](https://numpy.org/doc/stable/)                       | Work with numerical arrays and controlled random sampling.   |
+| Plotting                        | [Matplotlib](https://matplotlib.org/stable/users/getting_started/index.html) | Create figures with explicit units, labels, and uncertainty representations. |
+| Symbolic calculation            | [SymPy](https://docs.sympy.org/latest/index.html)            | Manipulate symbolic expressions and check suitable identities under explicit assumptions. |
+| Physical units                  | [Pint](https://pint.readthedocs.io/en/stable/)               | Represent quantities with units and perform compatible conversions. |
+| Repeatable checks               | [pytest](https://docs.pytest.org/en/stable/)                 | Run numerical and structural checks with recorded expected outcomes. |
+| Notebook execution              | [nbclient](https://nbclient.readthedocs.io/en/latest/)       | Execute a notebook programmatically and preserve outputs.    |
+| Optimization studies            | [Optuna](https://optuna.readthedocs.io/en/stable/tutorial/10_key_features/003_efficient_optimization_algorithms.html) | Propose optimization trials and manage their evaluation. Use only when optimization matches the scientific objective. |
+| Grammar suggestions             | [LanguageTool](https://languagetool.org/proofreading-api)    | Supply language-level checks. It does not establish scientific correctness. |
+| Calendar files                  | [icalendar](https://icalendar.readthedocs.io/en/latest/)     | Read and write iCalendar data; read-only input is sufficient for Project 10. |
+| Statistical surrogate models    | [scikit-learn Gaussian processes](https://scikit-learn.org/stable/modules/gaussian_process.html) | Optional regression and predictive uncertainty models for adaptive experiment design. |
 
 ## Final Remark
+
 **The central question is what the automation contributes to a scientific task, and how a physicist can tell whether its result is usable.**
