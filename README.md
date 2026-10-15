@@ -15,7 +15,7 @@ Projects 1–10 form the main catalogue. Projects 11–15 are optional alternati
 
 You may use Langflow, another visual workflow editor, Python, notebooks, or your preferred software. **All software suggestions in this document are optional.** You may replace a suggested tool without changing the scientific objective or the required deliverables. A command-line workflow or notebook can be a complete submission; a polished application interface is unnecessary.
 
-Your workflow should contain at least one clearly motivated use of a **generative model** or **embedding model**. Explain its role and why its task can not be performed by any other traditional algorithm.
+Your workflow should contain at least one clearly motivated use of a **generative model** or **embedding model**. Explain its role and why its task cannot be performed by any other traditional algorithm.
 
 ## The five deliverables required for every project
 
@@ -34,7 +34,7 @@ The numbered deliverables in each project below specify what these common requir
 - Use the same evaluation inputs and reference criteria for both systems. Keep model and tool access comparable where possible, and report differences in compute or available information.
 - Keep at least two test cases aside while developing the workflow. Do not repeatedly tune prompts on every final test.
 - For your workflow, repeat at least one representative case three times and describe any variation.
-- Try to compare the behaviours of different LLMs, different context length and reasoning settings.
+- Try to compare the behaviours of different LLMs, different context lengths, and different reasoning settings.
 - A workflow that identifies insufficient information or fails with interpretable traces can be more useful than one that always produces a confident answer. An honest negative result is a valid project outcome.
 
 ### Outcome 1: a reusable contribution to the shared GitHub repository
@@ -45,18 +45,18 @@ Your contribution must contain:
 
 - **The executable workflow:** flow exports, scripts, or notebooks, including custom components and required prompts or configuration files.
 - **A README:** the purpose or function, supported inputs and outputs, prerequisites, software versions, model/service requirements, installation or import steps, and exact instructions for running an example.
-- **An example input and its recorded output:** explain what another collegue should expect to see, including acceptable variation in stochastic outputs.
+- **An example input and its recorded output:** explain what another colleague should expect to see, including acceptable variation in stochastic outputs.
 - **The four deliverables:** task specification, evaluation results and procedures, and account of human judgment alongside the executable workflow. Explain the key design choices and how to adapt the example to a new question or dataset.
 
-For your submission create a folder `workflow_name/` and structure with like this: `README.md`, `workflow/`, `example/`, `evidence/` and `evaluation.md` (equivalent organization is welcome). Written explanations may share a file.
+For your submission, create a folder `workflow_name/` and structure it like this: `README.md`, `workflow/`, `example/`, `evidence/` and `evaluation.md` (equivalent organization is welcome). Written explanations may share a file.
 
-**WARNING: Remember to never share or upload credentials or API keuys!**
+**WARNING: Remember to never share or upload credentials or API keys!**
 
 **Before submitting, ask another pair to run the example using your instructions.** Record any missing steps they identify and correct the instructions. If an external service or account requirement prevents execution, document that limitation and make the recorded example available for inspection.
 
 ### Outcome 2: a 35-minute presentation
 
-Your presentation should teach your collegues how the workflow works and why its design is appropriate for the task. Show the scientific problem, the mechanism of the automation, the decisions you made, and actual examples of its behavior.
+Your presentation should teach your colleagues how the workflow works and why its design is appropriate for the task. Show the scientific problem, the mechanism of the automation, the decisions you made, and actual examples of its behavior.
 
 The following timing is a suggestion. You may distribute the 35 minutes differently, provided you cover the required content.
 
@@ -78,15 +78,17 @@ The presentation should answer four questions clearly: **What does it do? How do
 
 ## 1. Evidence-grounded question answering: RAG, GraphRAG, or OAG
 
-**Short explanation.** RAG stands for *retrieval augmented generation*, it allows agentic AI to retrieve information from a knowledge base to answer questions from facts and not memory. Facts and also be *ingested* to dynamically update the agent knowledge.
+**Short explanation.** RAG stands for *retrieval-augmented generation*. It allows agentic AI to retrieve information from a knowledge base to answer questions from facts and not memory. Facts can also be *ingested* to dynamically update the agent's knowledge.
 
-**Assignment.** Build an assistant that answers physics questions using a collection of papers or lecture-notes. Answers must identify the passages that support their important statements.
+**Assignment.** Build an assistant that answers physics questions using a collection of papers or lecture notes. Answers must identify the passages that support their important statements.
 
-Choose one main approach: retrieval-augmented generation (RAG), graph-assisted retrieval (GraphRAG), or ontology-augmented generation (OAG). In this assignment, OAG means using an explicit description of concepts, relations, or constraints to guide retrieval or interpretation. You do not need to implement all three approaches, but ideall you build an OAG.
+Choose one main approach: retrieval-augmented generation (RAG), graph-assisted retrieval (GraphRAG), or ontology-augmented generation (OAG). In this assignment, OAG means using an explicit description of concepts, relations, or constraints to guide retrieval or interpretation. You do not need to implement all three approaches, but ideally you will build an OAG.
 
-If you go the graph extraction route use the reference graph extraction worfklow.
+If you go the graph extraction route, use the reference graph extraction workflow.
 
-**Suggested route.** Load documents, preserve source locations, divide text into useful passages (ingestion), retrieve evidence for a question, generate an answer, and check its support. A graph variant might extract a graph (see reference workflow), follow links between a model, its assumptions, and its predictions. For maximum flexibility: make the ingestion of documents and retrieval of passges separate *tools* that you can expose to an agent.
+**Suggested route.** Load documents, preserve source locations, divide text into useful passages (ingestion), retrieve evidence for a question, generate an answer, and check its support. A graph variant might extract a graph (see reference workflow) and follow links between a model, its assumptions, and its predictions. For maximum flexibility: make the ingestion of documents and retrieval of passages separate *tools* that you can expose to an agent.
+
+**Application proposal.** You can see what the process of writing your bachelor's thesis would have been like by adding the literature that you used to the RAG. Would it have been easier to find the information you need? After going back to your bachelor's thesis, does the RAG help you find new information or information you forgot?
 
 **Optional software hints.** Langflow can connect retrieval and generation and turn HTML into structured text. ChromaDB can store and search embeddings. NetworkX can hold a small graph without a separate database; RDFLib is an option for RDF-based relations. See the tool guide below.
 
@@ -96,23 +98,27 @@ If you go the graph extraction route use the reference graph extraction worfklow
 
 ## 2. Literature research with review
 
-**Assignment.** Build a workflow that investigates a question or a topic, searches and screens for candidate papers, and produces a literature synthesis. To improve the synthesis results use the reference reference graph extraction worfklow.
+**Assignment.** Build a workflow that investigates a question or a topic, searches and screens for candidate papers, and produces a literature synthesis. To improve the synthesis results, use the reference graph extraction workflow.
 
 **Suggested route.** Specify criteria, discover candidates, remove duplicates, review one paper at a time, record inclusion decisions, extract claims and relations, then synthesize the accepted evidence.
 
+**Application proposal.** As a benchmark of your code, you can perform the literature search you conducted for your bachelor's thesis using the AI workflow. Does it find the same literature? Does it find different literature? If so, are the results interesting?
+
 **Optional software hints.** OpenAlex can supply scholarly metadata and search results. Beautiful Soup or Langflow's URL/Parse components can parse accessible article HTML, but it does not retrieve paywalled full texts or understand equations automatically. Langflow can organize discovery and one-paper review stages. NetworkX and a CSV file are sufficient for a first graph and screening record.
 
-**Comments.** A general-purpose research agent and exhaustive coverage are outside the minimum task. Define a policy for missing full text rather than treating an abstract as a full-paper review.
+**Comments.**
 
-**Comments.** Let reviewer feedback propose a revised search query within the fixed search budget. Use arxiv papers for easily accessible search and note: Arxiv HTML papers are easier to read for a machine than PDFs (PDFs are hard to read!) and arxiv search does not rank results liek OpenAlex.
+* A general-purpose research agent and exhaustive coverage are outside the minimum task. Define a policy for missing full text rather than treating an abstract as a full-paper review.
+
+* Let reviewer feedback propose a revised search query within the fixed search budget. Use arXiv papers for easily accessible search and note: arXiv HTML papers are easier to read for a machine than PDFs (PDFs are hard to read!), and arXiv search does not rank results like OpenAlex.
 
 ------
 
 ## 3. A physics tutor and examiner
 
-**Assignment.** Build a tutor for a user suplied topic, such as the harmonic oscillator, dimensional analysis, or numerical integration. The tutor should explain ideas, respond to answers, and choose a suitable follow-up exercise. An examiner stage should assess answers using explicit criteria.
+**Assignment.** Build a tutor for a user-supplied topic, such as the harmonic oscillator, dimensional analysis, or numerical integration. The tutor should explain ideas, respond to answers, and choose a suitable follow-up exercise. An examiner stage should assess answers using explicit criteria.
 
-Prepare **three learning objectives and six reference-checked questions**, including a conceptual question and a calculation. Use simulated collegue responses for evaluation; a study with real learners is not required.
+Prepare **three learning objectives and six reference-checked questions**, including a conceptual question and a calculation. Use simulated colleague responses for evaluation; a study with real learners is not required.
 
 **Suggested route.** Establish the learner's starting point, offer an explanation or hint, collect an answer, assess it, and choose a next step. Bound the number of exchanges and finish with a summary of demonstrated understanding and unresolved difficulties.
 
@@ -130,9 +136,11 @@ Prepare **three learning objectives and six reference-checked questions**, inclu
 
 **Suggested route.** Identify the target, extract equations and numerical choices, inspect omissions, generate or adapt code, run it, compare against the target, and perform at most three documented correction rounds.
 
+**Application proposal.** You can reproduce the algorithm presented in this paper: https://arxiv.org/abs/2108.09575. As a check, you can compare the code produced by the workflow with the official code provided publicly https://github.com/JonasRigo/AD-Numerical-Renormalization-Group.
+
 **Optional software hints.** Langflow can organize extraction, generation, execution, and review. SciPy can supply numerical solvers, Matplotlib can produce plots, and pytest can run scientific checks. nbclient can execute notebooks automatically.
 
-**Comments.** Reproducing the whole paper or matching a figure visually without a quantitative comparison is outside the assignment. A documented unsuccessful reproduction is valid if it identifies the remaining obstacle. Choose a paper from the arxiv, since they give you access to HTML versions (easier to read for LLMs than PDFs) and access to the Latex source code.
+**Comments.** Reproducing the whole paper or matching a figure visually without a quantitative comparison is outside the assignment. A documented unsuccessful reproduction is valid if it identifies the remaining obstacle. Choose a paper from arXiv, since it gives you access to HTML versions (easier to read for LLMs than PDFs) and access to the LaTeX source code.
 
 **Optional extension.** Test a prediction at a parameter value not shown in the paper.
 
@@ -140,13 +148,21 @@ Prepare **three learning objectives and six reference-checked questions**, inclu
 
 ## 5. Experimental data analysis and presentation
 
-**Assignment.** Build a workflow that turns measurements and a description of the experiment into a justified analysis, uncertainty estimates, and clear plots. Use one experiment, such as a damped oscillation, an RC circuit, or a calibration curve.
+**Assignment.** Build a workflow that turns a dataset and a description of the experiment into a justified analysis, uncertainty estimates, and clear plots. Focus on one scientific question, such as estimating a physical parameter or assessing whether a model describes the observations. The workflow should use the supplied context to propose and justify an analysis, carry it out with inspectable numerical code, and assess the result.
 
-Use an openly available dataset of your choice, or generate realistic synthetic measurements with known parameters. The generative model may interpret the measurement description, propose an analysis plan, or explain results; numerical calculations must be inspectable..
+Use one of the datasets below, another openly available dataset, or realistic synthetic measurements with known parameters. Supply a short experimental description, column definitions, units, known preprocessing or selection steps, and available uncertainty information. The generative model may interpret this context, propose a physical model and analysis plan, or explain results. Record the chosen model, assumptions, and analysis settings. If essential information is missing, the workflow should request it or state how this limits the analysis.
 
-**Optional software hints.** Langflow can organize the analysis stages and call a Python component. pandas (python library that works natively with Langflow) can read and organize tables, SciPy can fit models, Matplotlib can plot results, and Pint can help handle units. See the tool guide for documentation.
+The output should include the inferred quantities and their uncertainties, plots of the data and analysis results, and a short interpretation of agreement, discrepancies, and limitations. Use error bars or uncertainty bands where meaningful, with clearly stated uncertainty definitions. The workflow should justify axis scales and choose coordinates appropriate to the measured quantities: polar plots are useful only when the physical variables warrant them. For a fit, include residuals or another suitable diagnostic rather than judging agreement from the main plot alone.
 
-**Comments.** One measurement type and one principal analysis are sufficient. Automatic selection among every possible fit model is unnecessary. Possible data set is [LIGO: GW150914 discovery figure](https://dcc.ligo.org/LIGO-G1600204-v6/public?utm_source=google.com): Load the two measured signals, reproduce their comparison, estimate the relative time delay, compare with the supplied theoretical waveforms, and produce a report describing residuals and analysis limitations.
+**Application proposals.** The following are two suitable examples. Give the workflow a scientific question and enough experimental context to make informed choices. Keep your expected analysis and checking criteria in the evaluation record so you can assess whether the workflow identifies the relevant steps without a step-by-step recipe.
+
+**a) Cosmic microwave background spectrum.** Use the [COBE/FIRAS CMB monopole spectrum from NASA LAMBDA](https://lambda.gsfc.nasa.gov/product/cobe/firas_monopole_get.html), a small plain-text dataset containing spectral intensities, residuals, and quoted uncertainties. The [dataset description](https://lambda.gsfc.nasa.gov/product/cobe/firas_monopole_spect.html) explains the experiment and how the published spectrum was constructed. Ask whether the measured spectrum is consistent with thermal radiation and what temperature it implies. Build a workflow that uses the experimental context to select and justify an appropriate physical model, estimate its parameters and uncertainties, and assess agreement through residuals. Check that it interprets the spectral coordinate and intensity units correctly and distinguishes measured intensity from the published residual column. This is a reanalysis of a processed scientific data product; any assumption of independent spectral errors must be stated, and fit uncertainties must be distinguished from the experiment's full calibration uncertainty.
+
+**b) Z-boson resonance from muon pairs.** Use the `Zmumu` CSV sample in the [CMS educational datasets derived from Run2011A](https://opendata.cern.ch/record/cms-545). It contains muon energies and momenta for events selected around the Z-boson resonance; the linked page describes the columns and event selection. The [CMS education guide](https://opendata.cern.ch/docs/cms-guide-for-education) provides additional context. Ask what resonance mass the muon-pair events support and how robust that estimate is to analysis choices. Build a workflow that identifies and reconstructs the relevant observable, selects a justified peak model, and reports the inferred position with statistical uncertainty. Evaluate whether it recognises binning and fit interval as choices worth investigating and tests their effect on the result. Check the reconstructed invariant masses against the supplied mass column, and assess the fit with appropriate counting statistics and diagnostics. Keep the resonance position as the main target. Note that interpreting its width requires accounting for detector effects. State the limitations of the educational event selection.
+
+**Optional software hints.** Langflow can organize the analysis stages and call a Python component. pandas (a Python library that works natively with Langflow) can read and organize tables, SciPy can fit models, Matplotlib can plot results, and Pint can help handle units. See the tool guide for documentation.
+
+**Comments.** One dataset and one principal analysis are sufficient. Model choice should follow the physics and measurement context; an unrestricted search over fitting functions is unnecessary. Compare with a simple reference analysis on the same data and check at least one controlled input defect, such as a missing unit or uncertainty column. A physicist must review the proposed assumptions and whether the reported uncertainties support the interpretation.
 
 **Optional extension.** Compare two physically motivated models or add a documented treatment of correlated calibration uncertainty.
 
@@ -157,6 +173,42 @@ Use an openly available dataset of your choice, or generate realistic synthetic 
 **Assignment.** Build a workflow that develops a derivation, checks it, and returns either a supported result or an explicit unresolved step. Select one family of problems, such as linear differential equations, commutator identities, or a thermodynamic relation under specified assumptions.
 
 **Suggested route.** Record the claim and assumptions, propose a method, attempt the derivation, check individual steps or seek a counterexample, then revise the argument. Use at most three revision rounds. If the claim changes, preserve the original and explain the change.
+
+**Application examples.** Choose one of the following calculations. Start from a supplied Hamiltonian and a clearly specified approximation; reconstruct and verify the steps leading to a closed-form result.
+
+**a) Anderson's poor man's scaling for the Kondo model.** Use Sections 2–3 of Andriy Nevidomskyy's [The Kondo Model and Poor Man's Scaling (2015)](https://www.cond-mat.de/events/correl15/manuscripts/nevidomskyy.pdf). Restrict the calculation to a spin-$\tfrac{1}{2}$ impurity, a single conduction channel, isotropic exchange, and a constant density of states. Derive the second-order correction from eliminating a narrow energy shell, obtain the one-loop scaling equation, and solve it for the running coupling. With the reference's convention $H_{\mathrm{int}} = 2J\,\mathbf{s}\cdot\mathbf{S}$, $g = \rho J$, and $\ell = \ln(D_0/D)$, the targets are
+
+$$
+\frac{dg}{d\ell} = 2g^2
+$$
+
+and the leading exponential Kondo scale
+
+$$
+k_B T_K \sim D_0 \exp\left(-\frac{1}{2g_0}\right).
+$$
+
+State the density-of-states and coupling conventions explicitly. Verify the spin algebra with Pauli matrices and compare the analytical flow with numerical integration for antiferromagnetic and ferromagnetic initial couplings. Explain where weak-coupling perturbation theory breaks down; the pole of the approximate flow does not establish a physical divergence.
+
+**b) The weak-coupling s-wave BCS superconducting gap.** Use Bardeen, Cooper, and Schrieffer's [Theory of Superconductivity, Physical Review 108, 1175 (1957)](https://doi.org/10.1103/PhysRev.108.1175) as the reference. Starting from the reduced pairing Hamiltonian, use the BCS mean-field approximation to derive the self-consistency equation for an isotropic s-wave gap. Assume a constant density of states $N(0)$ per spin and an attractive interaction of magnitude $V$ within the energy window $|\xi| < \hbar\omega_D$. With $\lambda = N(0)V \ll 1$, derive the zero-temperature result
+
+$$
+\Delta(0) \simeq 2\hbar\omega_D \exp\left(-\frac{1}{\lambda}\right).
+$$
+
+Verify the integral and weak-coupling limit symbolically and compare the approximation with a numerical solution of the gap equation. As an optional extension, derive
+
+$$
+k_B T_c \simeq \frac{2e^\gamma}{\pi}\hbar\omega_D \exp\left(-\frac{1}{\lambda}\right)
+$$
+
+and the ratio
+
+$$
+\frac{2\Delta(0)}{k_B T_c} \simeq 3.53,
+$$
+
+where $\gamma$ is the Euler–Mascheroni constant. This example uses a self-consistent mean-field approximation; explain why the exponentially small gap is not captured by a finite power series in $\lambda$.
 
 **Optional software hints.** Langflow can implement the bounded proposal/check/revision cycle. SymPy can perform symbolic manipulation. Numerical substitution can help find counterexamples. For a familiar finite-dimensional operator problem, explicit matrix calculations may provide useful checks.
 
@@ -176,16 +228,17 @@ Example tasks include selecting an integration step for a target accuracy, choos
 
 **Comments.** Start on a laptop with a proposed budget of no more than 20 short tuning runs per study, adjusted with the instructor. Cluster integration is optional. Do not stop solely because an LLM says the result looks converged.
 
-**Application proposal.** [How reliably can a small neural network distinguish the two phases, and how does its inferred transition depend on training data, network size, and random seed?](https://arxiv.org/abs/1605.01735?utm_source=google.com)
+**Application proposal.** Use [qs-snapshots-fidelity](https://github.com/JonasRigo/qs-snapshots-fidelity) to locate a phase transition in the one-dimensional spinless t–V model from occupation snapshots. Keep the supplied conditional autoregressive RNN architecture fixed; students implement and orchestrate training, validation, and analysis rather than design a network. Investigate how the inferred transition depends on the training-data budget, training settings, and random seed. Start with small systems suitable for a laptop.
 
 | STAGE                    | WHAT THE WORKFLOW DOES                                       |
 | ------------------------ | ------------------------------------------------------------ |
-| Generate data            | Run Monte Carlo simulations at specified temperatures; save configurations and simulation settings (16x16 sites for H = \sum_{ij} s^z_i s^z_j) |
-| Establish a baseline     | Classify configurations using their absolute magnetisation \lvert m\rvert. |
-| Tune the network         | Compare a set of hidden-layer sizes and regularisation strengths. |
-| Select a model           | Use validation performance, with a preference for a smaller model when performance is comparable. |
-| Accumulate final results | Retrain the selected configuration with several seeds and evaluate on independent simulations. |
-| Report                   | Plot predictions versus temperature, uncertainty across runs, baseline comparisons, and computational cost. |
+| Prepare snapshots       | Use supplied datasets or `generate_samples.py` for exact-diagonalization snapshots at a small system size, initially L = 10, across interaction strengths. Record seeds and split data into training, validation, and held-out test sets at each interaction strength. |
+| Establish a baseline    | Compute the charge-density-wave structure factor S(π) directly from held-out snapshots and inspect its variation with interaction strength. |
+| Train the supplied RNN  | Implement teacher-forced negative-log-likelihood (NLL) training using `rnn_model.py`; keep the architecture fixed. |
+| Allocate tuning runs    | Within the 20-run budget, vary learning rate, training duration, or snapshot count. Use validation NLL and runtime to choose further runs and apply a predefined stopping rule. |
+| Select training settings | Select settings using validation results; reserve the test set for final evaluation. |
+| Accumulate final results | With settings fixed, train independent seeds and sample the RNN. Estimate the Bhattacharyya-based fidelity susceptibility and S(π), increasing sample counts until the chosen precision or compute limit is reached. |
+| Report                  | Plot susceptibility peaks, S(π), its derivative, and NLL curves. Compare with the snapshot baseline and report variation across seeds, finite-size limitations, runtime, and computational cost. |
 
 ------
 
@@ -195,9 +248,11 @@ Example tasks include selecting an integration step for a target accuracy, choos
 
 Choose a target such as approximately 100–300 lines of scientific code or 2–4 pages containing a derivation. Adjust these bounds for mathematical density.
 
+**Application proposal.** Think back to the literature research you conducted for your bachelor's thesis. Choose a paper that you came across and had trouble understanding at the time. Use your workflow to get it explained to you. Does your understanding improve? What has helped you get a better understanding of the concepts?
+
 **Optional software hints.** Langflow can separate extraction, explanation, and review. NetworkX can store the concept graph. Beautiful Soup can extract article HTML. For code, language parsers or Python's standard `ast` module can help identify structure.
 
-**Comments.** Explain one selected target. A graph, as produced by the reference graph extraction worfklow, or the [graphify](https://github.com/Graphify-Labs/graphify) tool is very helpful for the user and the agent to better understand code or math.
+**Comments.** Explain one selected target. A graph, as produced by the reference graph extraction workflow, or the [graphify](https://github.com/Graphify-Labs/graphify) tool is very helpful for the user and the agent to better understand code or math.
 
 **Optional extension.** Offer a second explanation for a reader with different prior knowledge while retaining the same source links.
 
@@ -209,83 +264,13 @@ Choose a target such as approximately 100–300 lines of scientific code or 2–
 
 Create a compact terminology specification: approximately ten terms or symbols, their definitions, relevant relations, and at least five explicit consistency rules. This can be a structured table or a small ontology. A glossary alone should not be described as a complete ontology.
 
+**Application proposal.** Test your editor by opening your bachelor's thesis and deleting a paragraph or even a whole page from the text. Try to write the missing text again using the features of your editor. Does this make your work faster? How accurate is the produced text? Does the text differ from your original text?
+
 **Optional software hints.** Langflow can separate language review from evidence and terminology checks. LanguageTool is an optional grammar-checking component. RDFLib can represent an ontology if useful; a reviewed JSON table is sufficient for the minimum scope. Standard text-difference tools can produce the change list.
 
 **Comments.** The editor checks against supplied evidence and explicit rules. It does not certify the truth of an arbitrary manuscript. A suggestion list is sufficient; no word-processor plugin is required.
 
 **Optional extension.** Add a check that accepted edits preserve equations, numerical values, and defined notation.
-
-------
-
-## 10. A daily research briefing
-
-**Assignment.** Build a workflow that combines a calendar and project task list into a concise daily briefing. The briefing should distinguish fixed events, explicit deadlines, preparation requirements, conflicts, and suggested priorities.
-
-Use a **synthetic calendar covering one week and 10–15 tasks**. Treat briefing generation as an on-demand operation with a supplied date and time; a deployed scheduler is optional. You can also search the web for information, like news, weather and fun new physics articles. These web summaries can be added to the daily breifing.
-
-**Optional software hints.** Langflow can join the inputs and generate the briefing. Python's `icalendar` package can read `.ics` files. JSON or CSV can hold tasks, and standard date/time libraries can handle time zones. Live account connections are unnecessary for the assignment.
-
-**Comments.** A briefing is sufficient. Automatic rescheduling, email sending, and integration with multiple private services are outside the minimum task.
-
-**Optional extension.** Generate a weekly planning summary using the same evidence record.
-
-------
-
-# Optional alternative projects
-
-These projects use exactly the same five deliverables and evaluation requirements. They can replace any project in the main catalogue.
-
-## 11. Equation-to-code verification
-
-**Assignment.** Build a workflow that translates one family of physics equations into executable code and verifies the implementation against independent checks. A suitable example is a driven or damped oscillator with specified initial conditions.
-
-**Optional software hints.** SymPy can manipulate equations and reference expressions, SciPy can solve suitable numerical problems, and pytest can execute checks. Langflow can organize translation and review. A notebook can present both equations and computed results.
-
-**Comments.** One equation family is sufficient. Unlike Project 4, no paper reproduction or method extraction from a publication is required.
-
-**Optional extension.** Compare two numerical methods under the same accuracy target.
-
-------
-
-## 12. Diagnosis of failed or suspicious simulations
-
-**Assignment.** Build an assistant that uses a small simulator's configuration, logs, and outputs to propose possible causes of failure and select a few diagnostic checks. Include failures that produce plausible-looking output, not only exceptions.
-
-Use a familiar simulator and at least four controlled defects, together with a successful control run.
-
-**Optional software hints.** Langflow can coordinate diagnosis and diagnostic tools. Python's logging module can create consistent logs, pandas can summarize outputs, and pytest can check known symptoms. A simple local simulator is sufficient.
-
-**Comments.** Diagnosis and a justified repair proposal are sufficient. Arbitrary modification of a research codebase is unnecessary.
-
-**Optional extension.** Apply one approved repair and rerun the scientific checks.
-
-------
-
-## 13. Scientific dataset curation
-
-**Assignment.** Build a workflow that combines measurement or simulation files into a documented dataset. It should reconcile documented units and column names, detect duplicates and missing metadata, and separate ambiguous records for review.
-
-Start with approximately **ten small files** from one type of experiment or simulation. Use the generative model for a specific semantic task, such as interpreting free-text headers or proposing column mappings, and validate the proposed mapping before applying it.
-
-**Optional software hints.** pandas can read, combine, and validate tables. Pint can handle compatible units. Langflow can invoke an LLM for ambiguous headers and route uncertain proposals to review. CSV plus JSON metadata is sufficient.
-
-**Comments.** Curate one dataset family. Do not invent missing measurements or silently infer unrecorded units.
-
-**Optional extension.** Add a summary of how the curated dataset differs from its previous version.
-
-------
-
-## 14. Adaptive design of a simulated experiment
-
-**Assignment.** Build a workflow that chooses successive measurements in a simulated physics experiment to reduce parameter uncertainty or distinguish between two candidate models. Use a one-dimensional control variable and an explicit measurement budget.
-
-Suitable examples include selecting frequencies around a resonance or times at which to measure an exponential decay. The generative model can interpret the experiment request or explain proposed choices. The numerical selection criterion must remain inspectable.
-
-**Optional software hints.** SciPy can supply a simulator and parameter fits. NumPy can generate controlled noise. Langflow can organize the measurement loop. A Gaussian-process model from scikit-learn is an optional extension when useful; it is unnecessary for a simple parameter-fitting experiment.
-
-**Comments.** Use a simulated experiment. Hardware control and a fully general autonomous laboratory are unnecessary.
-
-**Optional extension.** Examine how the selection strategy behaves under a misspecified noise model.
 
 ------
 
